@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600;700&display=swap');
+
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+    max-height: 100vh;
+    width: 100vw;
+    background-color: rgb(60, 60, 60);
+}
+
+.game-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.heading {
+    color: rgb(235, 235, 235);
+    text-align: center;
+}
+
+.box-container {
+    width: max-content;
+    margin: 0 auto;
+    padding-top: 15%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.box {
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.keyboard-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    font-weight: 600;
+}
+
+.row {
+    width: max-content;
+    margin: 0 auto;
+    display: flex;
+    gap: 5px;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+
+.key {
+    background-color: rgb(236, 235, 235);
+    height: 2.25rem;
+    width: 2rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.wide {
+    width: 3rem;
+}

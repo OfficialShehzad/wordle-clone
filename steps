@@ -1,0 +1,22 @@
+GOAL - Create wordle clone (or atleast get the logic right)
+------------------------------------------------------------
+
+use html css js? or react?
+
+-create template
+-create keyboard
+-get the styling right
+-find a way to make the keyboard work
+-enter words into the right boxes
+
+-get array of words to select from
+-get random word
+-get word entered in the array
+-enter only if valid word
+
+-create classe for the following;
+    -letter doesn's exist in the word
+    -letter exists but in the wrong position
+    -letter exests and in the right position
+
+-6 chances on 5 letter words.
