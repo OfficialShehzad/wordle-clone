@@ -15,6 +15,7 @@ use html css js? or react?
 -enter only if valid word
 
 -create classe for the following;
+    -highlight current box
     -letter doesn's exist in the word
     -letter exists but in the wrong position
     -letter exests and in the right position

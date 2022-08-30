@@ -1,3 +1,32 @@
+let currentRow = 0;
+
+window.addEventListener("click", (e) => {
+  if(e.target.id === "enter"){
+    console.log("enter");
+  }else if(e.target.id === "backspace"){
+    backSpace();
+  }else if(e.target.classList[0] === "key"){
+    enterCharacter(e.target.id);
+  }
+})
+
+const backSpace = () => {
+  if (currentRow <= 0) return;
+  let boxes = document.querySelectorAll(".box");
+  boxes[currentRow-1].innerText = "";
+  currentRow--;
+}
+
+const enterCharacter = (letter) => {
+  if(currentRow >= 30) return;
+  let boxes = document.querySelectorAll(".box");
+  console.log(boxes[currentRow]);
+  boxes[currentRow].innerText = letter;
+  currentRow++
+}
+
+
+
 //words array
 const words = [
     'which',
