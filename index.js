@@ -1,6 +1,13 @@
 let currentRow = 0;
 let currentWord = "";
-let guesses = [];
+let currentBoxes = [];
+let win = false;
+let numberOfGuesses = 0;
+
+let youWin = document.querySelector(".you-win-modal");
+let youLose = document.querySelector(".you-lose-modal");
+let loseText = document.querySelector(".lose-text");
+
 //words array
 const words = [
   'which',
@@ -5768,6 +5775,10 @@ console.log(randomWord);
 
 
 window.addEventListener("click", (e) => {
+  if(e.target.classList[1] === "retry"){
+    location.reload();
+  }
+
   if (e.target.id === "enter") {
     checkWord();
 
@@ -5775,7 +5786,7 @@ window.addEventListener("click", (e) => {
     if (currentWord.length > 0) backSpace();
 
   } else if (currentWord.length < 5 && e.target.classList[0] === "key") {
-    enterCharacter(e.target.id);
+    if (!win) enterCharacter(e.target.id);
   }
 })
 
@@ -5787,13 +5798,36 @@ const checkWord = () => {
   
     if (currentWord === randomWord) {
       console.log("you guesssed correct");
-    }  
+      win = true;
 
-    guesses = [...guesses, currentWord];
+      setTimeout(() => {
+        youWin.showModal();
+      }, 1500);
+
+    } else {
+      numberOfGuesses++;
+      if (numberOfGuesses >= 6) {
+        loseText.innerText += randomWord;
+        youLose.showModal();
+      }
+
+    }
+
+    addClasses();
+
     currentWord = "";
+    currentBoxes = [];
 
   } else {
     console.log("word doesn't exist");
+    currentBoxes.forEach((box) => {
+      box.classList.add("shake-animation");
+
+      setTimeout(() => {
+        box.classList.remove("shake-animation");
+      }, 700);
+    })
+
   }
 }
 
@@ -5801,6 +5835,7 @@ const backSpace = () => {
   if (currentRow <= 0) return;
   let boxes = document.querySelectorAll(".box");
   boxes[currentRow-1].innerText = "";
+  currentBoxes = currentBoxes.slice(0, -1);
   currentWord = currentWord.slice(0, -1);
   currentRow--;
 }
@@ -5809,6 +5844,31 @@ const enterCharacter = (letter) => {
   if(currentRow >= 30) return;
   let boxes = document.querySelectorAll(".box");
   boxes[currentRow].innerText = letter;
+  currentBoxes = [...currentBoxes, boxes[currentRow]]
   currentWord += letter;
   currentRow++
 }
+
+const addClasses = () => {
+  for (let i = 0; i < currentWord.length; i++) {
+    let currentKey = document.getElementById(currentWord[i]);
+
+    if (currentWord[i] === randomWord[i]) {
+      currentBoxes[i].classList.add("correct");
+      currentKey.classList.add("correct");
+
+    } else if (randomWord.includes(currentWord[i])) {
+      currentBoxes[i].classList.add("exists");
+      currentKey.classList.add("exists");
+
+    } else {
+      currentBoxes[i].classList.add("wrong");
+      currentKey.classList.add("wrong");
+
+    }
+  }
+}
+
+// youWinClose.addEventListener("click", () => {
+//     youWin.close()
+// })

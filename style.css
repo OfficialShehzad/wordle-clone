@@ -9,7 +9,7 @@
 body {
     max-height: 100vh;
     width: 100vw;
-    background-color: rgb(11, 85, 100);
+    background-color: rgb(24, 24, 24);
 }
 
 .game-container {
@@ -37,13 +37,15 @@ body {
 .box {
     height: 3rem;
     width: 3rem;
-    border: 1px solid rgb(224, 224, 224);
-    border-radius: 5px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
     text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 1.25rem;
 }
 
 .keyboard-container {
@@ -63,7 +65,9 @@ body {
 }
 
 .key {
-    background-color: rgb(236, 235, 235);
+    background-color: rgb(100, 100, 100);
+    font-weight: bolder;
+    color: #fff;
     height: 2.25rem;
     width: 2rem;
     border: none;
@@ -88,6 +92,62 @@ body {
 
 .wrong {
     color: #fff;
-    border-color: rgb(103, 103, 103);
-    background-color: rgb(103, 103, 103);
+    border-color: rgb(48, 48, 48);
+    background-color: rgb(48, 48, 48);
+    transition: all 500ms ease-in-out;
+}
+
+.btn {
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: .5rem 1.25rem;
+    margin: .5rem;
+    background-color: rgb(11, 85, 100);
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.modal-heading {
+    margin-bottom: 1rem;
+}
+
+.you-win-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.664);
+}
+
+dialog{
+    text-align: center;
+    padding: 2rem;
+    margin: 30vh auto;
+    border: none;
+    position: initial;
+    border-radius: 5px;
+    transition: all 1s ease-in;
+}
+
+dialog > p {
+    margin: 1rem 0;
+}
+
+.shake-animation {
+    animation: shake 500ms ease-in-out;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(5px) rotate(-2deg);
+    }
+    25% {
+        transform: translateX(-5px) rotate(2deg);
+    }
+    50% {
+        transform: translateX(5px) rotate(-2deg);
+    }
+    75% {
+        transform: translateX(-5px) rotate(2deg);
+    }
+    100% {
+        transform: translateX(0px) rotate(0);
+    }
 }

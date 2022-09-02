@@ -10,10 +10,24 @@
 <body>
     <div class="game-container">
         <h1 class="heading">Wordle Clone</h1>
+        <div class="modal-container">
+
+            <dialog class="you-win-modal">
+                <h2 class="modal-heading">You Got It Right!!!!</h2>
+                <button class="btn retry">Play Again</button>
+                <p>Made By Shehzad</p>
+            </dialog>
+
+            <dialog class="you-lose-modal">
+                <h2 class="modal-heading lose-text">Oops, You Got It Wrong... The word was </h2>
+                <button class="btn retry">Try Again</button>
+            </dialog>
+
+        </div>
         <div class="box-container">
-            <div class="box correct"></div>
-            <div class="box exists"></div>
-            <div class="box wrong"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
             <div class="box"></div>
